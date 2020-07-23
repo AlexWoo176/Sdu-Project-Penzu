@@ -1,0 +1,34 @@
+.sidebar1 {
+  background:white;
+
+  padding: 0px;
+  min-height: 100%;
+}
+.list {
+  color:Black;
+  list-style: none;
+  padding-left: 0px;
+}
+.list> li, h3 {
+  padding: 5px 0px 10px 10px;
+  color: darkslategray;
+  -moz-text-size-adjust: revert;
+}
+.list>li:hover {
+  background-color: white;
+  color: blueviolet;
+  font-weight: bolder;
+  padding-left: 20px;
+}.main-content{
+   text-align:center;
+ }
+
+
+div#demo {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 black
+}

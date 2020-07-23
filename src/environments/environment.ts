@@ -4,6 +4,17 @@
 
 export const environment = {
   production: false,
+  diaryUrl: 'http://localhost:8080/api/sdu/diary/',
+  diaryUploadFileUrl: 'http://localhost:8080/api/sdu/diary-file/',
+  tagUrl: 'http://localhost:8080/api/sdu/tag/',
+  userUrl: 'http://localhost:8080/api/sdu/user/',
+  commentUrl: 'http://localhost:8080/api/sdu/comment/',
+  albumUrl: 'http://localhost:8080/api/sdu/album/',
+  albumUploadAvatarUrl: 'http://localhost:8080/api/sdu/album-avatar/',
+  albumUploadImageUrl: 'http://localhost:8080/api/sdu/album-add-image/',
+  imageUrl: 'http://localhost:8080/api/sdu/image/',
+  UserAvatarUrl: 'http://localhost:8080/api/sdu/user-avatar/',
+
   loginUrl: 'http://localhost:8080/api/sdu/login',
   signupUrl: 'http://localhost:8080/api/sdu/register',
   updateProfileUrl: 'http://localhost:8080/api/sdu/update-profile',

@@ -1,0 +1,21 @@
+<div class="container-fluid" style="background: navajowhite ;  padding-top: 5rem;">
+    <app-header></app-header>
+    <app-featured ></app-featured>
+  <main role="main" class="container-fluid">
+    <div class="row">
+      <div class="col-md-1 blog-main" style="height: 600px">
+      </div>
+      <div class="col-md-8 blog-main">
+        <router-outlet></router-outlet>
+      </div>
+
+      <aside class="col-md-3 blog-sidebar ">
+                <app-side-bar></app-side-bar>
+      </aside>
+
+    </div>
+
+  </main>
+</div>
+<button class="top" *ngIf="isShow" (click)="gotoTop()">👆Top</button>
+<app-footer></app-footer>

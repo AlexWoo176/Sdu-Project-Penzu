@@ -1,0 +1,34 @@
+<div class="container-fluid" style="padding-top: 5.2rem;">
+  <app-header></app-header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-sm-4 sidebar1" style="height: 800px">
+
+        <br>
+        <div id="demo" class="left-navigation">
+          <ul class="list position-fixed">
+            <li [routerLink]="'/sdu'"><h2>New Entry</h2></li>
+            <li [routerLink]="'/sdu/album-picture-create'"><h2>New Album</h2></li>
+            <li [routerLink]="'/sdu/profile/'"><h2>My Profile</h2></li>
+            <li [routerLink]="'/sdu/listUserDiary/'"><h2>My Entry</h2></li>
+            <li [routerLink]="'/sdu/album-of-user/'"><h2>My Album</h2></li>
+            <li *ngIf="info.authorities[0] === 'ADMIN'" [routerLink]="'/sdu/manageTag/'"><h2>Manage Tag</h2></li>
+            <li *ngIf="info.authorities[0] === 'ADMIN'" [routerLink]="'/sdu/manageDiary/'"><h2>Manage Diary</h2></li>
+            <li *ngIf="info.authorities[0] === 'ADMIN'" [routerLink]="'/sdu/manageAlbum/'"><h2>Manage Album</h2></li>
+            <li *ngIf="info.authorities[0] === 'ADMIN'" [routerLink]="'/sdu/manageUser/'"><h2>Manage User</h2></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-8 col-sm-6 main-content" style="background: white">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-md-2 col-sm-2 main-content" style="background: white">
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<app-footer></app-footer>
