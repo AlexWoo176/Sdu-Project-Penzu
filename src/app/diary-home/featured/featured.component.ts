@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DiaryService} from '../../services/diary.service';
+import {Diary} from '../../model/diary';
 
 @Component({
   selector: 'app-featured',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturedComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  diaryList: Diary[];
+  images: string[];
+  constructor(private diaryService: DiaryService) {
   }
 
+  ngOnInit() {
+    this.getDiaryList();
+  }
+
+  getDiaryList() {
+    this.diaryService.getListDiary().subscribe(
+      result => {
+        this.diaryList = result;
+      }
+    );
+  }
 }

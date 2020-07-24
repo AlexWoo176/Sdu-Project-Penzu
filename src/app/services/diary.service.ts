@@ -5,6 +5,9 @@ import {Observable} from 'rxjs';
 import {Pagination} from '../model/pagination';
 import {Diary} from '../model/diary';
 import {FileForm} from '../model/file-form';
+import {SearchDiaryByTitle} from '../model/search-diary-by-title';
+import {SearchDiaryByTagAndTitle} from '../model/search-diary-by-tag-and-title';
+import {SearchDiaryByTitleAndUserId} from '../model/search-diary-by-title-and-user-id';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -57,4 +60,19 @@ export class DiaryService {
     return this.http.put<Diary>(this.sduDiaryUrl + diary.id, diary);
   }
 
+  searchDiaryByTitleAndUserID(title: SearchDiaryByTitleAndUserId): Observable<Diary[]> {
+    return this.http.post<Diary[]>(this.sduDiaryUrl + 'searchBy-Title-And-UserId', title);
+  }
+
+  searchDiaryByTitle(title: SearchDiaryByTitle): Observable<Diary[]> {
+    return this.http.post<Diary[]>(this.sduDiaryUrl + 'search-by-title', title);
+  }
+
+  searchDiaryByTagAndTitle(searchForm: SearchDiaryByTagAndTitle): Observable<Diary[]> {
+    return this.http.post<Diary[]>(this.sduDiaryUrl + 'search-by-tag-and-title' , searchForm);
+  }
+
+  searchDiaryByTagId(id: string): Observable<Diary[]> {
+    return this.http.get<Diary[]>(this.sduDiaryUrl + 'searchBy-TagId/' + id );
+  }
 }

@@ -13,6 +13,13 @@ import {IsAdminGuard} from './auth-guard/is-admin.guard';
 import {ManageDiaryComponent} from './admin/manage-diary/manage-diary.component';
 import {ManageUserComponent} from './admin/manage-user/manage-user.component';
 import {ManageAlbumComponent} from './admin/manage-album/manage-album.component';
+import {AlbumHomeComponent} from './album-home/album-home.component';
+import {DiaryDetailComponent} from './diary/diary-detail/diary-detail.component';
+import {AlbumDetailComponent} from './album/album-detail/album-detail.component';
+import {DiaryCreateComponent} from './diary/diary-create/diary-create.component';
+import {AlbumListOfUserComponent} from './album/album-list-of-user/album-list-of-user.component';
+import {DiaryListOfUserComponent} from './diary/diary-list-of-user/diary-list-of-user.component';
+import {DiaryUpdateComponent} from './diary/diary-update/diary-update.component';
 
 
 const routes: Routes = [
@@ -20,27 +27,60 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      {path: '', component: BlogMainComponent}
+      { path: '', component: BlogMainComponent },
     ]
   },
   {
-    path: 'register',
-    component: RegisterComponent,
-    canActivate: [NotActivateTeamGuard]
+    path: 'album' ,
+    component: AlbumHomeComponent
   },
   {
-    path: 'login',
-    component: LoginComponent,
-    canActivate: [NotActivateTeamGuard]
+    path: 'diary/:id' ,
+    component: DiaryDetailComponent
   },
+  {
+    path: 'album-detail/:id',
+    component: AlbumDetailComponent,
+  },
+  { path: 'login',
+    component: LoginComponent,
+    canActivate: [NotActivateTeamGuard],
+  },
+  // {
+  //   path: 'manage-tag/:id' ,
+  //   component: ShowDiaryByTagComponent,
+  // },
   {
     path: 'sdu',
     component: DiaryComponent,
     canActivate: [CanActivateTeamGuard],
     children: [
+      { path: '',
+        component: DiaryCreateComponent
+      },
+      // {
+      //   path: 'album-picture-create',
+      //   component: DiaryImageCreateComponent,
+      // },
+      // {
+      //   path: 'album-picture-add-image/:id',
+      //   component: AddImageToAlbumComponent,
+      // },
+      {
+        path: 'album-of-user',
+        component: AlbumListOfUserComponent,
+      },
       { path: 'profile' ,
         component: ProfileComponent,
         canActivate: [CanActivateTeamGuard],
+      },
+      { path: 'listUserDiary' ,
+        component: DiaryListOfUserComponent,
+        canActivate: [CanActivateTeamGuard],
+      },
+      {
+        path: 'updateDiary/:id' ,
+        component: DiaryUpdateComponent
       },
       {
         path: 'manageTag' ,
@@ -63,7 +103,12 @@ const routes: Routes = [
         canActivate: [IsAdminGuard]
       }
     ]
-  }
+  },
+  { path: 'register' ,
+    component: RegisterComponent,
+    canActivate: [NotActivateTeamGuard],
+  },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

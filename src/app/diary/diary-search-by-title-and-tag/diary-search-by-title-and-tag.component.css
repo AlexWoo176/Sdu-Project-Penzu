@@ -1,0 +1,49 @@
+.firma-ara{
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+.form-arka-plan{
+  background-image: url("https://cdn.filepicker.io/api/file/1WxRtkAQG5h70aoPQdGA/convert?format=jpeg&quality=50");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.acik-renk-form{
+  background: rgba(255, 255, 255, 0.58);
+}
+.siyah-cerceve{
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+
+.search-box{
+  background: #c1c1c1;
+  border: 1px solid #ababab;
+  padding: 3%;
+}
+.search-box input:focus{
+  box-shadow:none;
+  border:2px solid #eeeeee;
+}
+.search-list{
+  background: #fff;
+  border-top: none;
+}
+.search-list h3{
+  background: #eee;
+  padding: 20px;
+  margin-bottom: 0%;
+}
+
+
+.top {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+}

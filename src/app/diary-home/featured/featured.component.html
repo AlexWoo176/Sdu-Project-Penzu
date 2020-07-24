@@ -1,1 +1,15 @@
-<p>featured works!</p>
+<div class="text-white " *ngIf="diaryList">
+  <ngb-carousel interval="3000">
+    <ng-template ngbSlide *ngFor="let diary of diaryList.slice(0,5)">
+      <div class="picsum-img-wrapper">
+        <a [routerLink]="'/diary/' + diary.id">
+          <img [src]="diary.urlFile" width="100%" height="800" alt="Random first slide">
+        </a>
+      </div>
+      <div class="carousel-caption">
+        <h2  style="color: lightskyblue"><strong>{{diary.title}}</strong></h2>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+<hr>

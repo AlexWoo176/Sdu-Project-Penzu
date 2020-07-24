@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {Diary} from '../model/diary';
 import {User} from '../model/user';
 import {FileForm} from '../model/file-form';
+import {SearchUserByName} from '../model/search-user-by-name';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -44,8 +45,8 @@ export class UserService {
     return this.http.post<FileForm>(this.sduUserAvatarUrl + userId, file, {headers});
   }
 
-/*  searchUserByName(user: SearchUserByName): Observable<User[]> {
-    return this.http.post<User[]>(this.svUserUrl + 'search-by-name' , user);
-  }*/
+  searchUserByName(user: SearchUserByName): Observable<User[]> {
+    return this.http.post<User[]>(this.sduUserUrl + 'search-by-name' , user);
+  }
 
 }

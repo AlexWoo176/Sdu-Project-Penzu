@@ -1,0 +1,90 @@
+<app-header></app-header>
+<div class="container-fluid" style="background: powderblue ;  padding-top: 4.5rem;">
+  <div class="row">
+    <div class="col-md-12 col-sm-4 sidebar1">
+      <section class="search-banner text-white py-3 form-arka-plan" id="search-banner">
+        <div class="container py-5 my-5">
+          <div class="row text-center pb-4">
+            <div class="col-md-12">
+              <h2 class="text-white siyah-cerceve"></h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card acik-renk-form">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group ">
+                        <label class="font-weight-light text-dark">Tag</label>
+                        <select [(ngModel)]="tagId" id="ilceler" class="form-control" (change)="searchDiary()">
+                          <option selected disabled hidden value="null">Select tag</option>
+                          <option *ngFor="let tag of listTag" value="{{tag.id}}">{{tag.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                  </div>
+                  <label class="font-weight-light text-dark">Entry Title</label>
+                  <div class="row">
+                    <div class="col-md-9">
+                      <div class="form-group ">
+                        <input [(ngModel)]="title" (keydown)="searchDiary()" type="text" class="form-control" placeholder="Enter entry title!...">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <button (click)="searchDiary()" type="button" class="btn btn-warning  pl-5 pr-5">Go</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <br/>
+  <div class="row" style="background: powderblue">
+
+
+    <div class="col-md-12" style="background: powderblue; width: 700px">
+      <div class="container-fluid">
+        <div class="search-list">
+          <div *ngIf="ListDiary; else other">
+            <h3>{{ListDiary.length}} Records Found</h3>
+          </div>
+          <ng-template #other>
+            <h3>0 Records Found</h3>
+          </ng-template>
+          <table class="table" >
+            <thead>
+            <tr>
+              <th>Tag</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Author</th>
+            </tr>
+            </thead>
+            <tr *ngFor="let diary of ListDiary">
+              <td class="text-info"><a>{{diary.tag.name}}</a></td>
+              <td class="text-info"><a [routerLink]="'/diary/' + diary.id" >{{diary.title}}</a></td>
+              <td class="text-info">{{diary.description.slice(0,100)}} ...</td>
+              <td class="text-info">{{diary.date}}</td>
+              <td class="text-info"><a >{{diary.user.name}}</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <br/>
+    </div>
+  </div>
+  <br/>
+</div>
+<button class="top" *ngIf="isShow" (click)="gotoTop()">👆Top</button>
+<app-footer></app-footer>
