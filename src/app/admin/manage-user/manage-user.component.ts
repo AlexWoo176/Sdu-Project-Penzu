@@ -15,11 +15,13 @@ export class ManageUserComponent implements OnInit {
   userList: User[] = [];
   returnUrl: any;
   tokenUserId: string;
+  role: string[];
   constructor(private userService: UserService,
               private token: TokenStorageService,
               private route: ActivatedRoute,
               private router: Router, ) {
     this.tokenUserId = this.token.getUserId();
+    this.role = this.token.getAuthorities();
   }
   userId: string;
   name: '';
@@ -40,8 +42,7 @@ export class ManageUserComponent implements OnInit {
 
   getUserId(id: string) {
     this.userId = id;
-
-    console.log(this.tokenUserId , this.userId);
+    // console.log(this.tokenUserId , this.userId);
   }
 
   deleteUser(closeModalRef2: HTMLButtonElement) {
@@ -53,10 +54,10 @@ export class ManageUserComponent implements OnInit {
         this.getListUser();
         closeModalRef2.click();
       }, error => {
-        console.log(error);
+        // console.log(error);
       }
     );
-    console.log(this.tokenUserId , this.userId);
+    // console.log(this.tokenUserId , this.userId);
   }
 
   searchByName() {

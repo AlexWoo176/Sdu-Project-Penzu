@@ -11,29 +11,31 @@
     </ng-template>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" >Image</span>
+        <span class="input-group-text">Image</span>
       </div>
-      <input type="file" class="form-control" aria-label="Amount (to the nearest dollar)" (change)="handleFileChooser($event.target.files)">
+      <input type="file" class="form-control" aria-label="Amount (to the nearest dollar)"
+             (change)="handleFileChooser($event.target.files)">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon3">Title</span>
       </div>
-      <textarea  type="text" [(ngModel)]="diary.title" name="title"
-                 class="form-control" id="basic-url" aria-describedby="basic-addon3"></textarea>
+      <textarea type="text" [(ngModel)]="diary.title" name="title"
+                class="form-control" id="basic-url" aria-describedby="basic-addon3"></textarea>
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Description</span>
       </div>
-      <textarea [(ngModel)]="diary.description" name="description" rows="4" class="form-control" aria-label="With textarea"></textarea>
+      <textarea [(ngModel)]="diary.description" name="description" rows="4" class="form-control"
+                aria-label="With textarea"></textarea>
     </div>
     <br/>
     <div class="input-group mb-3">
-      <div >
-        <label class="input-group-text lg" >Tag</label>
+      <div>
+        <label class="input-group-text lg">Tag</label>
       </div>
-      <select [(ngModel)]="tagId"  class="custom-select " name="tag"  id="inputGroupSelect02">
+      <select [(ngModel)]="tagId" class="custom-select " name="tag" id="inputGroupSelect02">
         <option value="" hidden selected>{{diary.tag.name}}</option>
         <option *ngFor="let tag of tagList" value="{{tag.id}}">
           {{tag.name}}
@@ -44,12 +46,15 @@
       <label for="basic-url">Content</label>
     </h3>
 
-    <ck-editor name="editor1" skin="moono-lisa" [(ngModel)]="diary.content" language="en" [fullPage]="false"></ck-editor>
+    <ck-editor name="editor1" skin="moono-lisa" [(ngModel)]="diary.content" language="en"
+               [fullPage]="false"></ck-editor>
 
     <br/>
     <br/>
     <label for="basic-url">
-      <button type="button" class="btn btn-success btn-lg" (click)="updateDiary(openModal, openProcessBar , closeProcess)" >Update </button>
+      <button type="button" class="btn btn-success btn-lg"
+              (click)="updateDiary(openModal, openProcessBar , closeProcess)">Update
+      </button>
     </label>
   </form>
 </div>
@@ -58,7 +63,8 @@
   Launch demo modal
 </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -72,20 +78,21 @@
       </div>
       <div class="modal-footer">
         <button #closeModalRef1 type="button" class="btn btn-info" data-dismiss="modal">Continue update Diary</button>
-        <button  type="button" class="btn btn-primary" (click)="preview(previewId, closeModalRef1)">Preview Diary</button>
+        <button type="button" class="btn btn-primary" (click)="preview(previewId, closeModalRef1)">Preview Diary
+        </button>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- Button trigger modal waiting for upload -->
-<button #openProcessBar type="button" hidden class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button #openProcessBar type="button" hidden class="btn btn-primary" data-toggle="modal"
+        data-target="#exampleModalCenter">
   Launch demo modal
 </button>
 
-<!-- Modal -->
-<div data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -93,11 +100,13 @@
       </div>
       <div class="modal-body">
         <div class="progress">
-          <div class="progress-bar" role="progressbar" [style.width.%]="processValue" [attr.aria-valuenow]="processValue"  aria-valuemin="0" aria-valuemax="100">{{processValue}}%</div>
+          <div class="progress-bar" role="progressbar" [style.width.%]="processValue"
+               [attr.aria-valuenow]="processValue" aria-valuemin="0" aria-valuemax="100">{{processValue}}%
+          </div>
         </div>
-        <div class="modal-footer" >
-          <button  #closeProcess type="button" hidden class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" hidden class="btn btn-primary">Save changes</button>
+        <div class="modal-footer">
+          <button #closeProcess type="button" hidden class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" hidden class="btn btn-primary">Save</button>
         </div>
       </div>
     </div>

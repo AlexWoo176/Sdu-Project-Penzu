@@ -1,36 +1,20 @@
 <app-header></app-header>
-<!-- Page Content -->
 <div class="container-fluid" style="background: lightgray;  padding-top: 5rem;">
-
   <div class="row">
     <div class="col-md-1">
     </div>
-    <!-- Post Content Column -->
     <div class="col-md-10">
       <div *ngIf="album">
-
-        <!-- Preview Image -->
         <img class="img-fluid rounded" src="{{album.avatar}}" style="width: 100% ; height: 700px">
-
         <hr>
-        <!-- Title -->
         <h1 class="mt-4">{{album.title}}</h1>
-
-        <!-- Author -->
         <p class="lead">
           by
           <a class="text-primary">{{album.user.name}}</a>
         </p>
-
         <hr>
-
-        <!-- Date/Time -->
         <p>{{album.date}}</p>
-
         <hr>
-
-
-        <!-- Post Content -->
         <h3><strong [innerText]="album.description"></strong></h3>
       </div>
       <hr>
@@ -45,7 +29,6 @@
       </div>
       <hr>
 
-      <!--        Rate-->
       <h3 class="text-secondary text-center">
         Did You Enjoy This Article?
       </h3>
@@ -57,7 +40,6 @@
         </ngb-rating>
         <pre>Rate: <b>{{currentRate}}</b></pre>
       </div>
-      <!-- Comments Form -->
       <div class="card my-4" style="background: lightblue">
         <h3 class="card-header"><strong>Leave a Comment:</strong></h3>
         <div class="card-body">
@@ -89,7 +71,7 @@
         <br>
       </ng-template>
       <hr>
-      <!-- Single Comment -->
+
       <div class="media mb-4" *ngFor="let comment of listComment , index as i" >
         <div *ngIf="comment.user.avatar;else other9">
           <img class="d-flex mr-3 rounded-circle" src="{{comment.user.avatar}}" style="width: 50px;height: 50px" alt="">
@@ -108,7 +90,6 @@
             {{comment.content}}
           </p>
           <div class="text-left" *ngIf="this.userId == comment.user.id">
-            <!--              edit/delete-->
             <a #closeModalRef  class="btn btn-primary a-btn-slide-text" data-toggle="collapse" [attr.data-target]="'#collapseExample' + i" aria-expanded="false">
               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               <span><strong>Edit</strong></span>
@@ -136,15 +117,9 @@
 
     </div>
   </div>
-  <!-- /.row -->
-
 </div>
-<!-- /.container -->
 <button class="top" *ngIf="isShow" (click)="gotoTop()">👆Top</button>
 <app-footer></app-footer>
-
-
-<!--Modal-->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">

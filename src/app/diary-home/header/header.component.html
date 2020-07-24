@@ -1,18 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a [routerLink]="''"  class="btn btn-outline-secondary border-0 navbar-brand d-flex align-items-center">
-      <img src="https://firebasestorage.googleapis.com/v0/b/penzu500.appspot.com/o/album%2Ficon%2Fjournal.png?alt=media&token=1d1e186b-4c4d-4bcd-a7ec-07de0dd4967a"> &nbsp;&nbsp;
+    <a [routerLink]="''" class="btn btn-outline-secondary border-0 navbar-brand d-flex align-items-center">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/penzu500.appspot.com/o/album%2Ficon%2Fjournal.png?alt=media&token=1d1e186b-4c4d-4bcd-a7ec-07de0dd4967a">
+      &nbsp;&nbsp;
       <strong class="">Diary</strong>
     </a>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <a [routerLink]="'/album'" class="btn btn-outline-secondary border-0 navbar-brand d-flex align-items-center">
-      <img src="https://firebasestorage.googleapis.com/v0/b/penzu500.appspot.com/o/album%2Ficon%2Falbum.png?alt=media&token=276d68f5-8ee1-4558-b630-a344060b8fd0"> &nbsp;&nbsp;
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/penzu500.appspot.com/o/album%2Ficon%2Falbum.png?alt=media&token=276d68f5-8ee1-4558-b630-a344060b8fd0">
+      &nbsp;&nbsp;
       <strong>Album</strong>
     </a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#" >Home
+          <a class="nav-link" href="#">Home
             <span class="sr-only">(current)</span>
           </a>
         </li>
@@ -32,21 +36,24 @@
        src="{{this.user.avatar}}" alt="">
   <div *ngIf="this.info.token; else logIn">
     <div class="btn-group" style="padding-right: 30px">
-      <button type="button" class="btn btn-outline-secondary text-light border-1" [routerLink]="'/library/profile/'">{{info.name}}</button>
-      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split border-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button type="button" class="btn btn-outline-secondary text-light border-1"
+              [routerLink]="'/sdu/profile/'">{{info.name}}</button>
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split border-2"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only">Toggle</span>
       </button>
       <div class="dropdown-menu dropdown-menu-right" style="background: darkgrey">
-        <a class="dropdown-item text-center" [routerLink]="'/library/'">New</a>
+        <a class="dropdown-item text-center" [routerLink]="'/sdu/'">New</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item text-center" (click)="logout()" >Logout</a>
+        <a class="dropdown-item text-center" (click)="logout()">Logout</a>
       </div>
     </div>
   </div>
 
   <ng-template #logIn>
     <div class="btn-group ">
-      <button class="btn btn-outline-secondary btn-lg border-1 text-light" type="button"  [routerLink]="'/login'" data-toggle="dropdown" >
+      <button class="btn btn-outline-secondary btn-lg border-1 text-light" type="button" [routerLink]="'/login'"
+              data-toggle="dropdown">
         Login
       </button>
     </div>

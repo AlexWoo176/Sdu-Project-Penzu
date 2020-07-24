@@ -1,8 +1,6 @@
 <div class="card mb-4">
   <div class="card-body">
-    <!-- Grid row -->
     <div class="row">
-      <!-- Grid column -->
       <div class="col-md-12">
         <div *ngIf="albumList == null else show">
           <h2 class="pt-3 pb-4 text-center font-bold font-up text-info">This Gallery Is Empty!</h2>
@@ -16,12 +14,8 @@
             <a><i class="fa fa-search white-text" aria-hidden="true"></i></a></span>
         </div>
       </div>
-      <!-- Grid column -->
     </div>
-    <!-- Grid row -->
-    <!--Table-->
     <table  class="table table-striped">
-      <!--Table head-->
       <thead>
       <tr>
         <td>#</td>
@@ -30,8 +24,6 @@
         <th>Update/Delete</th>
       </tr>
       </thead>
-      <!--Table head-->
-      <!--Table body-->
       <tbody>
       <tr *ngFor="let album of albumList, index as i">
         <th scope="row">{{i + 1}}</th>
@@ -46,11 +38,7 @@
           </button>
         </td>
       </tr>
-      <!--Table body-->
     </table>
-    <!--Table-->
-
-    <!--    modall-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">

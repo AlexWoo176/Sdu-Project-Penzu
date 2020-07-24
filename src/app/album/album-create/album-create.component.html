@@ -2,43 +2,43 @@
   <h4 class="display-4 darken-grey-text">New Album</h4>
 </div>
 <br/>
-<form [formGroup]="albumForm" >
-  <div class = "form-group">
+<form [formGroup]="albumForm">
+  <div class="form-group">
     <h3 class="text-secondary"><strong><label>Avatar</label></strong></h3>
     <div *ngIf="!filePath; else img">
     </div>
     <ng-template #img>
       <img src="{{filePath}}" width="100%" height="700px">
     </ng-template>
-    <input type = "file" class = "form-control"  (change)="handleFileChooser($event.target.files)">
+    <input type="file" class="form-control" (change)="handleFileChooser($event.target.files)">
   </div>
-  <div class = "form-group">
+  <div class="form-group">
     <h3 class="text-secondary"><strong><label>Title</label></strong></h3>
-    <textarea formControlName="title"  class = "form-control" rows = "3" placeholder = "..."></textarea>
+    <textarea formControlName="title" class="form-control" rows="3" placeholder="..."></textarea>
   </div>
-  <div class = "form-group">
+  <div class="form-group">
     <h3 class="text-secondary"><strong><label>Tag</label></strong></h3>
     <select formControlName="tagId" class="custom-select " id="inputGroupSelect02">
       <option value="" selected disabled hidden>Please select Tag</option>
       <option *ngFor="let tag of tagList" value="{{tag.id}}">{{tag.name}}</option>
     </select>
   </div>
-  <div class = "form-group">
+  <div class="form-group">
     <h3 class="text-secondary"><strong><label>Description</label></strong></h3>
-    <textarea formControlName="description"  class = "form-control" rows = "5" placeholder = "..."></textarea>
+    <textarea formControlName="description" class="form-control" rows="5" placeholder="..."></textarea>
   </div>
   <br>
-  <button class="btn btn-outline-primary btn-lg" (click)="createAlbum(openModalRef,openProcessBar,closeProcess)">Create Album</button>
+  <button class="btn btn-outline-primary btn-lg" (click)="createAlbum(openModalRef,openProcessBar,closeProcess)">Create
+    Album
+  </button>
 </form>
 
-
-
-<!-- Button trigger modal -->
 <button #openModalRef hidden type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
 </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -52,19 +52,19 @@
       </div>
       <div class="modal-footer">
         <button #closeModalRef1 type="button" class="btn btn-info" data-dismiss="modal">Create Another Album</button>
-        <button  type="button" class="btn btn-primary" (click)="preview(closeModalRef1)">Add Image</button>
+        <button type="button" class="btn btn-primary" (click)="preview(closeModalRef1)">Add Image</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Button trigger modal waiting for upload -->
-<button #openProcessBar type="button" hidden class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button #openProcessBar type="button" hidden class="btn btn-primary" data-toggle="modal"
+        data-target="#exampleModalCenter">
   Launch demo modal
 </button>
 
-<!-- Modal -->
-<div data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -72,11 +72,13 @@
       </div>
       <div class="modal-body">
         <div class="progress">
-          <div class="progress-bar" role="progressbar" [style.width.%]="processValue" [attr.aria-valuenow]="processValue"  aria-valuemin="0" aria-valuemax="100">{{processValue}}%</div>
+          <div class="progress-bar" role="progressbar" [style.width.%]="processValue"
+               [attr.aria-valuenow]="processValue" aria-valuemin="0" aria-valuemax="100">{{processValue}}%
+          </div>
         </div>
-        <div class="modal-footer" >
-          <button  #closeProcess type="button" hidden class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" hidden class="btn btn-primary">Save changes</button>
+        <div class="modal-footer">
+          <button #closeProcess type="button" hidden class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" hidden class="btn btn-primary">Save</button>
         </div>
       </div>
     </div>

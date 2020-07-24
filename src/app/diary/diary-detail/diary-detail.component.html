@@ -51,7 +51,7 @@
               </div>
               <ng-template #other>
                 <div class="text-center text-secondary">
-                  <h6>You need login before can be comment. <a  [routerLink]="'/login'">Login!</a></h6>
+                  <h6>You need login before can be comment. <a [routerLink]="'/login'">Login!</a></h6>
                 </div>
               </ng-template>
             </div>
@@ -59,10 +59,10 @@
         </div>
         <br/>
       </div>
-      <div *ngIf="this.listComment; else other1" >
+      <div *ngIf="this.listComment; else other1">
         <h4 style="padding-left: 15px"><u>{{listComment.length}}<strong class="text-primary"> Comment</strong></u></h4>
       </div>
-      <ng-template #other1 >
+      <ng-template #other1>
         <h4 style="padding-left: 15px"><u>0 <strong class="text-primary">Comment</strong></u></h4>
         <br>
         <br>
@@ -70,7 +70,7 @@
       </ng-template>
       <hr>
 
-      <div class="media mb-4" *ngFor="let comment of listComment , index as i" >
+      <div class="media mb-4" *ngFor="let comment of listComment , index as i">
         <div *ngIf="comment.user.avatar;else other9">
           <img class="d-flex mr-3 rounded-circle" src="{{comment.user.avatar}}" style="width: 50px;height: 50px" alt="">
         </div>
@@ -79,7 +79,8 @@
         </ng-template>
         <div class="media-body">
           <div *ngIf="comment.edit == 'true' ; else other4">
-            <label class="text-success">@{{comment.user.name}}<h6 class="text-secondary">{{comment.date}} (edited)</h6></label>
+            <label class="text-success">@{{comment.user.name}}<h6 class="text-secondary">{{comment.date}} (edited)</h6>
+            </label>
           </div>
           <ng-template #other4>
             <label class="text-success">@{{comment.user.name}}<h6 class="text-secondary">{{comment.date}}</h6></label>
@@ -88,23 +89,26 @@
             {{comment.content}}
           </p>
           <div class="text-left" *ngIf="this.userId == comment.user.id">
-            <!--              edit/delete-->
-            <a #closeModalRef  class="btn btn-primary a-btn-slide-text" data-toggle="collapse" [attr.data-target]="'#collapseExample' + i" aria-expanded="false">
+            <a #closeModalRef class="btn btn-primary a-btn-slide-text" data-toggle="collapse"
+               [attr.data-target]="'#collapseExample' + i" aria-expanded="false">
               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               <span><strong>Edit</strong></span>
             </a>
-            <a (click)="getIdComment(comment.id)" class="btn btn-warning a-btn-slide-text"  data-toggle="modal" data-target="#exampleModalCenter">
+            <a (click)="getIdComment(comment.id)" class="btn btn-warning a-btn-slide-text" data-toggle="modal"
+               data-target="#exampleModalCenter">
               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               <span><strong>Delete</strong></span>
             </a>
-            <div class="collapse" [id]="'collapseExample'+i" >
+            <div class="collapse" [id]="'collapseExample'+i">
               <form>
                 <div class="card card-body">
-                  <textarea contenteditable="true" [formControl]="contentUpdate" [value]="comment.content" rows="3"></textarea>
+                  <textarea contenteditable="true" [formControl]="contentUpdate" [value]="comment.content"
+                            rows="3"></textarea>
                   <br/>
                   <div class="text-right">
-                    <button class="btn btn-outline-secondary" (click)="closeForm(closeModalRef)" >Close</button>&nbsp;&nbsp;
-                    <button class="btn btn-outline-primary" (click)="updateComment(comment.id,closeModalRef)">Update</button>
+                    <button class="btn btn-outline-secondary" (click)="closeForm(closeModalRef)">Close</button>&nbsp;&nbsp;
+                    <button class="btn btn-outline-primary" (click)="updateComment(comment.id,closeModalRef)">Update
+                    </button>
                   </div>
                 </div>
               </form>
@@ -120,7 +124,8 @@
 
   </div>
 
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -139,8 +144,6 @@
       </div>
     </div>
   </div>
-
 </div>
-<!-- /.container -->
 <button class="top" *ngIf="isShow" (click)="gotoTop()">👆Top</button>
 <app-footer></app-footer>
