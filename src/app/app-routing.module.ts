@@ -20,6 +20,9 @@ import {DiaryCreateComponent} from './diary/diary-create/diary-create.component'
 import {AlbumListOfUserComponent} from './album/album-list-of-user/album-list-of-user.component';
 import {DiaryListOfUserComponent} from './diary/diary-list-of-user/diary-list-of-user.component';
 import {DiaryUpdateComponent} from './diary/diary-update/diary-update.component';
+import {AlbumCreateComponent} from './album/album-create/album-create.component';
+import {AlbumAddImageComponent} from './album/album-add-image/album-add-image.component';
+import {DiarySearchByTitleAndTagComponent} from './diary/diary-search-by-title-and-tag/diary-search-by-title-and-tag.component';
 
 
 const routes: Routes = [
@@ -27,88 +30,93 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: '', component: BlogMainComponent },
+      {path: '', component: BlogMainComponent},
     ]
   },
   {
-    path: 'album' ,
+    path: 'album',
     component: AlbumHomeComponent
   },
   {
-    path: 'diary/:id' ,
+    path: 'diary/:id',
     component: DiaryDetailComponent
   },
   {
     path: 'album-detail/:id',
     component: AlbumDetailComponent,
   },
-  { path: 'login',
+  {
+    path: 'login',
     component: LoginComponent,
     canActivate: [NotActivateTeamGuard],
   },
-  // {
-  //   path: 'manage-tag/:id' ,
-  //   component: ShowDiaryByTagComponent,
-  // },
+  {
+    path: 'manage-tag/:id',
+    component: DiarySearchByTitleAndTagComponent,
+  },
   {
     path: 'sdu',
     component: DiaryComponent,
     canActivate: [CanActivateTeamGuard],
     children: [
-      { path: '',
+      {
+        path: '',
         component: DiaryCreateComponent
       },
-      // {
-      //   path: 'album-picture-create',
-      //   component: DiaryImageCreateComponent,
-      // },
-      // {
-      //   path: 'album-picture-add-image/:id',
-      //   component: AddImageToAlbumComponent,
-      // },
+      {
+        path: 'album-picture-create',
+        component: AlbumCreateComponent,
+      },
+      {
+        path: 'album-picture-add-image/:id',
+        component: AlbumAddImageComponent,
+      },
       {
         path: 'album-of-user',
         component: AlbumListOfUserComponent,
       },
-      { path: 'profile' ,
+      {
+        path: 'profile',
         component: ProfileComponent,
         canActivate: [CanActivateTeamGuard],
       },
-      { path: 'listUserDiary' ,
+      {
+        path: 'listUserDiary',
         component: DiaryListOfUserComponent,
         canActivate: [CanActivateTeamGuard],
       },
       {
-        path: 'updateDiary/:id' ,
+        path: 'updateDiary/:id',
         component: DiaryUpdateComponent
       },
       {
-        path: 'manageTag' ,
-        component: ManageTagComponent ,
+        path: 'manageTag',
+        component: ManageTagComponent,
         canActivate: [IsAdminGuard]
       },
       {
-        path: 'manageDiary' ,
-        component: ManageDiaryComponent ,
+        path: 'manageDiary',
+        component: ManageDiaryComponent,
         canActivate: [IsAdminGuard]
       },
       {
-        path: 'manageUser' ,
-        component: ManageUserComponent ,
+        path: 'manageUser',
+        component: ManageUserComponent,
         canActivate: [IsAdminGuard]
       },
       {
-        path: 'manageAlbum' ,
-        component: ManageAlbumComponent ,
+        path: 'manageAlbum',
+        component: ManageAlbumComponent,
         canActivate: [IsAdminGuard]
       }
     ]
   },
-  { path: 'register' ,
+  {
+    path: 'register',
     component: RegisterComponent,
     canActivate: [NotActivateTeamGuard],
   },
-  { path: '**', redirectTo: '' },
+  {path: '**', redirectTo: ''},
 ];
 
 @NgModule({
