@@ -34,20 +34,14 @@ export class BlogMainComponent implements OnInit {
   }
 
   loadMore() {
-    console.log(this.page);
     this.diaryService.getListDiaryAndPaginationDESC(this.page).subscribe(
       result => {
-        console.log(result);
         if (result == null) {
           return this.loadText = 'Out of Blog';
         } else {
           this.diaryList = this.diaryList.concat(result.content);
-          console.log(this.diaryList);
           this.page++;
-          console.log(result.content);
         }
-      }, error => {
-        console.log('loi');
       }
     );
   }

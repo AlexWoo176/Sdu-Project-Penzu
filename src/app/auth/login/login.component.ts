@@ -50,15 +50,10 @@ export class LoginComponent implements OnInit {
         this.token.saveEmail(data.email);
         this.token.saveAvatar(data.avatar);
 
-        console.log(this.token);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.token.getAuthorities();
         this.router.navigateByUrl(this.returnUrl);
-      },
-      error => {
-        console.log(error);
-        this.isLoginFailed = true;
       }
     );
   }

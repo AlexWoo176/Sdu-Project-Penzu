@@ -24,9 +24,6 @@ export class ManageAlbumComponent implements OnInit {
     this.albumService.getListALlAlbum().subscribe(
       result => {
         this.albumList = result;
-        console.log(result);
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -40,8 +37,6 @@ export class ManageAlbumComponent implements OnInit {
       result => {
         this.getAllAlbum();
         closeModalRef2.click();
-      }, error =>  {
-        console.log(error);
       }
     );
   }
@@ -53,8 +48,6 @@ export class ManageAlbumComponent implements OnInit {
     this.albumService.findAlbumsByTitle(titleForm).subscribe(
       result => {
         this.albumList = result;
-      }, error => {
-        console.log(error);
       }
     );
   }

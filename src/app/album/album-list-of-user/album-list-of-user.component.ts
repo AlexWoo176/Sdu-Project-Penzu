@@ -27,8 +27,6 @@ export class AlbumListOfUserComponent implements OnInit {
     this.albumService.getAlbumsByUserId(this.token.getUserId()).subscribe(
       result => {
         this.albumList = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -53,8 +51,6 @@ export class AlbumListOfUserComponent implements OnInit {
     this.albumService.findAlbumsByTitle(titleForm).subscribe(
       result => {
         this.albumList = result;
-      }, error => {
-        console.log(error);
       }
     );
   }

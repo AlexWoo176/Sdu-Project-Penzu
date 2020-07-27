@@ -85,7 +85,6 @@ export class AlbumCreateComponent implements OnInit {
             clearInterval(count);
             this.processValue = 100;
             setTimeout(() => {
-              console.log('upload file ok');
               closeProcess.click();
               openModalRef.click();
               this.processValue = 0;
@@ -93,8 +92,6 @@ export class AlbumCreateComponent implements OnInit {
               this.albumForm.reset();
               this.filePath = undefined;
             }, 1000);
-          }, error1 => {
-            console.log('loi upload file');
           }
         );
       }

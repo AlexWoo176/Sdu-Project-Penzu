@@ -60,8 +60,6 @@ export class ProfileComponent implements OnInit {
       this.userService.getUserById(this.token.getUserId()).subscribe(
         result => {
           this.user = result;
-        }, error1 => {
-          console.log(error1);
         }
       );
     }
@@ -77,23 +75,16 @@ export class ProfileComponent implements OnInit {
     const formPass = new PassForm(this.info.userId, this.info.username, currentPassword, newPassword);
     this.authService.updatePassword(formPass).subscribe(
       result => {
-        console.log(result);
         closeButton.click();
         this.logout();
         this.router.navigateByUrl(this.returnUrl);
         alert('Change password successful. Please ReLogin !');
-      }, error1 => {
-        this.isError = true;
-        this.error = 'Update password fail!';
-        return console.error(error);
       }
     );
   }
 
   updateUser(closeButton: HTMLInputElement) {
     const {name} = this.inputName.value;
-
-    console.log(name);
 
     if (name === '') {
       this.isErrorUser = true;
@@ -104,14 +95,9 @@ export class ProfileComponent implements OnInit {
     this.authService.updateUser(userForm).subscribe(
       result => {
         closeButton.click();
-        console.log(result);
         this.logout();
         alert('Update successful. Please ReLogin !');
         this.router.navigateByUrl(this.returnUrl);
-      }, error => {
-        console.log(this.isErrorUser, this.errorUser);
-        this.isErrorUser = true;
-        return this.errorUser = 'Fail!.';
       }
     );
   }
@@ -152,9 +138,7 @@ export class ProfileComponent implements OnInit {
             console.log('ok');
             closeProcess.click();
             this.processValue = 0;
-          }, 2000);
-        }, error1 => {
-          console.log(error1);
+          }, 500);
         }
       );
     }

@@ -19,8 +19,6 @@ export class SideBarComponent implements OnInit {
     this.tagService.getTagList().subscribe(
       result => {
         this.tagList = result;
-      }, error => {
-        console.log(error);
       }
     );
   }

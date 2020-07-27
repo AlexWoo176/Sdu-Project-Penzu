@@ -30,7 +30,7 @@
         <td><a [routerLink]="'/diary/' + diary.id">{{diary.title.slice(0,65)}}...</a></td>
         <td>{{diary.date}}</td>
         <td>
-          <button type="button" class="btn btn-outline-primary" [routerLink]="'/library/updateDiary/' + diary.id">
+          <button type="button" class="btn btn-outline-primary" [routerLink]="'/sdu/updateDiary/' + diary.id">
             Update
           </button>&nbsp;
           <button (click)="getDiaryId(diary.id)" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">

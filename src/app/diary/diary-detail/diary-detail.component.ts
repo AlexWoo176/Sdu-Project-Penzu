@@ -56,7 +56,6 @@ export class DiaryDetailComponent implements OnInit {
 
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-
     if (scrollPosition >= this.topPosToStartShowing) {
       this.isShow = true;
     } else {
@@ -77,10 +76,6 @@ export class DiaryDetailComponent implements OnInit {
     this.diaryService.findDiaryById(this.diaryId).subscribe(
       result => {
         this.diary = result;
-        console.log(this.diary);
-        console.log('Get diary success');
-      }, error => {
-        console.log('Fail get diary');
       }
     );
   }
@@ -89,8 +84,6 @@ export class DiaryDetailComponent implements OnInit {
     this.commentService.getAllCommentByDiaryId(this.diaryId).subscribe(
       result => {
         this.listComment = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -109,11 +102,8 @@ export class DiaryDetailComponent implements OnInit {
     };
     this.commentService.createComment(comment).subscribe(
       result => {
-        console.log(result, 'ok');
         this.formCommentCreate.reset();
         this.getAllCommentThisDiary();
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -135,11 +125,8 @@ export class DiaryDetailComponent implements OnInit {
     this.commentService.editComment(comment).subscribe(
       result => {
         this.closeForm(closeModalRef);
-      }, error => {
-        console.log(error);
       }
     );
-    console.log(comment);
   }
 
   getIdComment(id: string) {
@@ -151,8 +138,6 @@ export class DiaryDetailComponent implements OnInit {
       result => {
         this.getAllCommentThisDiary();
         closeModalRef2.click();
-      }, error => {
-        console.log(error);
       }
     );
   }

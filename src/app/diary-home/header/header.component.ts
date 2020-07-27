@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit {
       userId: this.token.getUserId(),
       avatar: this.token.getAvatar()
     };
-    console.log(this.info);
     if (this.info.userId) {
       this.gerUserByUserID();
     }
@@ -50,8 +49,6 @@ export class HeaderComponent implements OnInit {
     this.userService.getUserById(this.info.userId).subscribe(
       result => {
         this.user = result;
-      }, error => {
-        console.log(error);
       }
     );
   }

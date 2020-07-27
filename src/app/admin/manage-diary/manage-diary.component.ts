@@ -23,8 +23,6 @@ export class ManageDiaryComponent implements OnInit {
     this.diaryService.getListDiary().subscribe(
       result => {
         this.listDiary = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -38,8 +36,6 @@ export class ManageDiaryComponent implements OnInit {
       result => {
         closeModalRef.click();
         this.getListDiary();
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -51,9 +47,6 @@ export class ManageDiaryComponent implements OnInit {
     this.diaryService.searchDiaryByTitle(title).subscribe(
       result => {
         this.listDiary = result;
-        console.log(result);
-      }, error => {
-        console.log(error);
       }
     );
   }

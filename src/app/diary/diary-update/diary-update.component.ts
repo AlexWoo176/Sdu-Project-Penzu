@@ -41,17 +41,12 @@ export class DiaryUpdateComponent implements OnInit {
     this.diaryService.findDiaryById(this.idParam).subscribe(
       result => {
         this.diary = result;
-        console.log(this.diary);
-      }, error => {
-        console.log(error);
       }
     );
 
     this.tagService.getTagList().subscribe(
       result => {
         this.tagList = result;
-      }, error => {
-        console.log(error);
       }
     );
 
@@ -72,7 +67,6 @@ export class DiaryUpdateComponent implements OnInit {
     reader.onload = (event) => {
       this.filePath = reader.result;
     };
-    console.log(this.filePath);
   }
 
   updateDiary(openModal: HTMLButtonElement, openProcessBar: HTMLButtonElement, closeProcess: HTMLButtonElement) {
@@ -111,7 +105,6 @@ export class DiaryUpdateComponent implements OnInit {
     this.diaryService.updateDiary(diary).subscribe(
       result => {
         if (this.fileUpload === null || this.fileUpload === undefined) {
-          console.log('create diary ok');
           openModal.click();
           this.previewId = result.id;
         } else {
@@ -124,18 +117,13 @@ export class DiaryUpdateComponent implements OnInit {
 
               setTimeout(() => {
                 closeProcess.click();
-                console.log('upload file ok');
                 openModal.click();
                 this.previewId = result.id;
-              }, 3000);
+              }, 1000);
 
-            }, error1 => {
-              console.log('loi upload file');
             }
           );
         }
-      }, error5 => {
-        return console.log('fail create diary');
       }
     );
   }

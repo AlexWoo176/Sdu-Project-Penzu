@@ -49,8 +49,6 @@ export class DiarySearchByTitleAndTagComponent implements OnInit {
         result => {
           this.ListDiary = result;
           this.id = null;
-        }, error => {
-          console.log(error);
         }
       );
     }
@@ -60,8 +58,6 @@ export class DiarySearchByTitleAndTagComponent implements OnInit {
     this.tagService.getTagList().subscribe(
       result => {
         this.listTag = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -74,8 +70,6 @@ export class DiarySearchByTitleAndTagComponent implements OnInit {
     this.diaryService.searchDiaryByTagAndTitle(searchForm).subscribe(
       result => {
         this.ListDiary = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -84,7 +78,6 @@ export class DiarySearchByTitleAndTagComponent implements OnInit {
   checkScroll() {
 
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
 
     if (scrollPosition >= this.topPosToStartShowing) {
       this.isShow = true;

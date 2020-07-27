@@ -44,8 +44,6 @@ export class AlbumAddImageComponent implements OnInit {
     this.albumService.getListImageByAlbumId(this.albumId).subscribe(
       result => {
         this.imageList = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -95,7 +93,6 @@ export class AlbumAddImageComponent implements OnInit {
     this.albumService.updateAlbum(formAlbum).subscribe(
       result => {
         if (this.fileUpload === null || this.fileUpload === undefined ) {
-          console.log('update album no update avatar ok');
           openModalRef.click();
         } else {
           const form = new FormData();
@@ -103,14 +100,9 @@ export class AlbumAddImageComponent implements OnInit {
           this.albumService.uploadAlbumAvatar(form, result.id).subscribe(
             next => {
               openModalRef.click();
-              console.log('upload file ok');
-            }, error1 => {
-              console.log('loi upload file');
             }
           );
         }
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -122,9 +114,9 @@ export class AlbumAddImageComponent implements OnInit {
         this.fileList.push(event.target.files.item(i));
         const reader = new FileReader();
 
+        // tslint:disable-next-line:no-shadowed-variable
         reader.onload = (event: any) => {
-          console.log(this.fileList);
-          console.log(this.urls);
+
           this.urls.push(event.target.result);
         };
 
@@ -136,8 +128,6 @@ export class AlbumAddImageComponent implements OnInit {
   removePreviewImage(i: number) {
     this.urls.splice(i, 1);
     this.fileList.splice(i, 1);
-    console.log(this.fileList);
-    console.log(this.urls);
   }
 
   uploadImageOfAlbum(openModalRef: HTMLButtonElement, openProcessBar: HTMLButtonElement, closeProcess: HTMLButtonElement) {
@@ -149,7 +139,6 @@ export class AlbumAddImageComponent implements OnInit {
         }
       }, 1000);
       openProcessBar.click();
-      console.log(this.fileList);
       const form = new FormData();
       for (const file of this.fileList) {
         form.append('files', file);
@@ -159,7 +148,6 @@ export class AlbumAddImageComponent implements OnInit {
         result => {
           clearInterval(count);
           this.processValue = 100;
-          console.log(result);
           this.urls = [];
           this.fileList = [];
           setTimeout(() => {
@@ -167,9 +155,7 @@ export class AlbumAddImageComponent implements OnInit {
             closeProcess.click();
             this.getAllImageOfAlbum();
             this.updateAlbum(openModalRef);
-          }, 3000);
-        }, error => {
-          console.log(error);
+          }, 1000);
         }
       );
     } else {
@@ -182,13 +168,10 @@ export class AlbumAddImageComponent implements OnInit {
   }
 
   deleteImage(closeModalRef1: HTMLButtonElement) {
-    console.log(this.imageId);
     this.albumService.deleteImageById(this.imageId).subscribe(
       result => {
         this.getAllImageOfAlbum();
         closeModalRef1.click();
-      }, error => {
-        console.log(error);
       }
     );
   }

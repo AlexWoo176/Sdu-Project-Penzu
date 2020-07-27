@@ -43,8 +43,6 @@ export class AlbumMainComponent implements OnInit {
     this.albumService.getListALlAlbum().subscribe(
       result => {
         this.slideAlbum = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -53,8 +51,6 @@ export class AlbumMainComponent implements OnInit {
     this.tagService.getTagList().subscribe(
       result => {
         this.tagList = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -85,8 +81,6 @@ export class AlbumMainComponent implements OnInit {
           } else {
             this.albumList = result.content;
           }
-        }, error => {
-          console.log(error);
         }
       );
     } else {
@@ -97,8 +91,6 @@ export class AlbumMainComponent implements OnInit {
           } else {
             this.albumList = result.content;
           }
-        }, error => {
-          console.log(error);
         }
       );
     }
@@ -110,7 +102,6 @@ export class AlbumMainComponent implements OnInit {
       left: 0,
       behavior: 'smooth'
     });
-    console.log('1');
   }
 
   getListAlbumByTagIdAndTitle() {
@@ -118,13 +109,10 @@ export class AlbumMainComponent implements OnInit {
       tagId: this.tagId,
       title: this.title
     };
-    console.log(searchForm);
 
     this.albumService.searchAlbumByTagIdAndTitle(searchForm).subscribe(
       result => {
         this.albumList = result;
-      }, error => {
-        console.log(error);
       }
     );
   }

@@ -35,15 +35,10 @@ export class RegisterComponent implements OnInit {
 
     this.authService.signUp(signUpInfoForm).subscribe(
       data => {
-        console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
         alert('Register Successful !');
         this.router.navigateByUrl(this.returnUrl);
-      },
-      error => {
-        console.log(error);
-        this.isSignUpFailed = true;
       }
     );
   }

@@ -49,7 +49,6 @@ export class ManageTagComponent implements OnInit {
 
     this.tagService.createTag(tag).subscribe(
       result => {
-        console.log(result);
         closeButon.click();
         this.getListTag();
         this.tagForm.reset();
@@ -73,7 +72,6 @@ export class ManageTagComponent implements OnInit {
       result => {
         closeModalRef1.click();
         this.getListTag();
-        console.log(result);
       }
     );
   }
@@ -94,8 +92,6 @@ export class ManageTagComponent implements OnInit {
     this.tagService.searchTagByName(tag).subscribe(
       next => {
         this.tagList = next;
-      }, error => {
-        console.log(error);
       }
     );
   }

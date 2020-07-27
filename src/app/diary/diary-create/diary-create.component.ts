@@ -93,7 +93,6 @@ export class DiaryCreateComponent implements OnInit {
       }
     };
 
-    console.log(diary);
     this.diaryService.createDiary(diary).subscribe(
       result => {
         const form = new FormData();
@@ -104,7 +103,7 @@ export class DiaryCreateComponent implements OnInit {
             this.processValue = 100;
 
             setTimeout(() => {
-              console.log('upload file ok');
+
               closeProcess.click();
               openModalRef.click();
               this.processValue = 0;
@@ -112,12 +111,8 @@ export class DiaryCreateComponent implements OnInit {
               this.formDiary.reset();
               this.filePath = undefined;
             }, 1000);
-          }, error1 => {
-            console.log('loi upload file');
           }
         );
-      }, error5 => {
-        return console.log('fail create diary');
       }
     );
   }

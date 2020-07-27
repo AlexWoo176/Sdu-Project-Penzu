@@ -30,7 +30,7 @@ export class DiaryListOfUserComponent implements OnInit {
       result => {
         this.listDiary = result;
       }, error => {
-        alert('error get diary');
+        alert('Error Get Diary');
       }
     );
   }
@@ -47,9 +47,6 @@ export class DiaryListOfUserComponent implements OnInit {
     this.diaryService.searchDiaryByTitleAndUserID(searchForm).subscribe(
       result => {
         this.listDiary = result;
-        console.log(result);
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -59,10 +56,7 @@ export class DiaryListOfUserComponent implements OnInit {
       result => {
         closeButton.click();
         this.getDiaryList();
-      }, error => {
-        console.log(error);
       }
     );
   }
-
 }

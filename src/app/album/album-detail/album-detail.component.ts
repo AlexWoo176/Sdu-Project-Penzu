@@ -22,7 +22,7 @@ export class AlbumDetailComponent implements OnInit {
   album: Album;
   listImage: Image[] = [];
   currentRate = 6;
-  formCommentCreate = new FormGroup( {
+  formCommentCreate = new FormGroup({
     contentInput: new FormControl('')
   });
   contentUpdate = new FormControl();
@@ -57,8 +57,6 @@ export class AlbumDetailComponent implements OnInit {
     this.albumService.getAlbumById(this.albumId).subscribe(
       result => {
         this.album = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -67,8 +65,6 @@ export class AlbumDetailComponent implements OnInit {
     this.albumService.getListImageByAlbumId(this.albumId).subscribe(
       result => {
         this.listImage = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -77,17 +73,13 @@ export class AlbumDetailComponent implements OnInit {
     this.commentService.getAllCommentByAlbumId(this.albumId).subscribe(
       result => {
         this.listComment = result;
-      }, error => {
-        console.log(error);
       }
     );
   }
 
   @HostListener('window:scroll')
   checkScroll() {
-
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
 
     if (scrollPosition >= this.topPosToStartShowing) {
       this.isShow = true;
@@ -96,7 +88,7 @@ export class AlbumDetailComponent implements OnInit {
     }
   }
 
-  // TODO: Cross browsing
+  // tslint:disable-next-line:typedef
   gotoTop() {
     window.scroll({
       top: 0,
@@ -104,6 +96,7 @@ export class AlbumDetailComponent implements OnInit {
       behavior: 'smooth'
     });
   }
+
   closeForm(closeModalRef: HTMLAnchorElement) {
     closeModalRef.click();
     this.getAllImageByAlbumId();
@@ -116,7 +109,7 @@ export class AlbumDetailComponent implements OnInit {
       return;
     }
     const comment: Comment = {
-      idAlbum: this.albumId ,
+      idAlbum: this.albumId,
       content: contentInput,
       user: {
         id: this.token.getUserId()
@@ -124,11 +117,8 @@ export class AlbumDetailComponent implements OnInit {
     };
     this.commentService.createComment(comment).subscribe(
       result => {
-        console.log(result , 'ok');
         this.getAllCommentThisAlbum();
         this.formCommentCreate.reset();
-      }, error => {
-        console.log(error);
       }
     );
   }
@@ -136,6 +126,7 @@ export class AlbumDetailComponent implements OnInit {
   getIdComment1(id: string) {
     this.idComment = id;
   }
+
   closeForm1(closeModalRef: HTMLAnchorElement) {
     closeModalRef.click();
     this.getAllCommentThisAlbum();
@@ -147,17 +138,14 @@ export class AlbumDetailComponent implements OnInit {
       return this.closeForm(closeModalRef);
     }
     const comment: Comment = {
-      id: commentId ,
+      id: commentId,
       content: this.contentUpdate.value
     };
     this.commentService.editComment(comment).subscribe(
       result => {
         this.closeForm1(closeModalRef);
-      }, error => {
-        console.log(error);
       }
     );
-    console.log(comment);
   }
 
   deleteComment1(closeModalRef2: HTMLButtonElement) {
@@ -165,8 +153,6 @@ export class AlbumDetailComponent implements OnInit {
       result => {
         this.getAllCommentThisAlbum();
         closeModalRef2.click();
-      }, error => {
-        console.log(error);
       }
     );
   }
