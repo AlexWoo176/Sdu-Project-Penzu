@@ -1,11 +1,11 @@
 <section class="jumbotron text-center" style="padding-top: 5rem ; padding-bottom: 15px">
   <div class="container-fluid">
     <div class="text-white " *ngIf="slideAlbum">
-      <ngb-carousel interval="3000">
-        <ng-template ngbSlide *ngFor="let album of slideAlbum.slice(0,5)">
+      <ngb-carousel interval="1000">
+        <ng-template ngbSlide *ngFor="let album of slideAlbum.slice(0,50)">
           <div class="picsum-img-wrapper">
             <a [routerLink]="'/album-detail/' + album.id">
-              <img [src]="album.avatar" width="100%" height="800" alt="Random first slide">
+              <img [src]="album.avatar" width="100%" height="640" alt="Random first slide">
             </a>
           </div>
           <div class="carousel-caption">

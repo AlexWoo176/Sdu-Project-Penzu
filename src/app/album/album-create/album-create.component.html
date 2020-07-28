@@ -8,7 +8,7 @@
     <div *ngIf="!filePath; else img">
     </div>
     <ng-template #img>
-      <img src="{{filePath}}" width="100%" height="700px">
+      <img src="{{filePath}}" width="100%" height="640px">
     </ng-template>
     <input type="file" class="form-control" (change)="handleFileChooser($event.target.files)">
   </div>
@@ -48,7 +48,7 @@
         </button>
       </div>
       <div class="modal-body text-success">
-        <h3>Album Created Successful! Do You Want Add Image For Album Or Create Another Album?</h3>
+        <h3>Album Created Successful! Do You want add Image for Album or Create another Album?</h3>
       </div>
       <div class="modal-footer">
         <button #closeModalRef1 type="button" class="btn btn-info" data-dismiss="modal">Create Another Album</button>
@@ -59,9 +59,7 @@
 </div>
 
 <button #openProcessBar type="button" hidden class="btn btn-primary" data-toggle="modal"
-        data-target="#exampleModalCenter">
-  Launch demo modal
-</button>
+        data-target="#exampleModalCenter"></button>
 
 <div data-keyboard="false" data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

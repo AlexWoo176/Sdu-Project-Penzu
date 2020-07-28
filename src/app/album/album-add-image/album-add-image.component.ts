@@ -116,10 +116,8 @@ export class AlbumAddImageComponent implements OnInit {
 
         // tslint:disable-next-line:no-shadowed-variable
         reader.onload = (event: any) => {
-
           this.urls.push(event.target.result);
         };
-
         reader.readAsDataURL(event.target.files[i]);
       }
     }
